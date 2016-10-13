@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+    <var name="order" class="com.scart.model.UserOrder" />
+    <action-state id="orderProcess">
+        <evaluate expression="cartDaoImpl.validate(requestParameters.cartId)" result="order.cart" />
+        <transition to="invalidProcess" on-exception="java.io.IOException" /> 
+        <transition to="userinfo" />
+    </action-state>
+    <view-state id="userInfoDisplay" view="userinfo.jsp" model="order">
+        <transition on="userInfoProcessCompleted" to="shippingaddress" />
+    </view-state>
+    <view-state id="shippingaddress" view="shippingaddress.jsp" model="order">
+        <transition on="shippingAddProcessCompleted" to="validateOrder" />
+        <transition on="backTouserInfoProcess" to="userinfo" />
+    </view-state>
+    <view-state id="validateOrder">
+        <transition to="endState" />
+        <transition on="backToShippingAddProcess" to="shippingaddress" />
+    </view-state>
+    <end-state id="endState" />
+
+    <view-state id="invalidProcess">
+        <transition to="endState" />
+    </view-state>
+    <end-state id="cancelOrderProcess" view="orderProcessCancelled.jsp" />
+    <global-transitions>
+        <transition on="cancel" to="cancelOrderProcess" />
+    </global-transitions>
+</flow>
