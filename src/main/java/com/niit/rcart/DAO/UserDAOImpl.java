@@ -41,7 +41,7 @@ public class UserDAOImpl implements UserDAO
 		//
 		//t1.commit();
 	}
-	
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public User verify(User u)
 	{
 		Session s = sf.getCurrentSession();

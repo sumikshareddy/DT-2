@@ -23,7 +23,7 @@ import com.niit.rcart.model.Product;
 import com.niit.rcart.model.Supplier;
 import com.niit.rcart.service.ICategoryService;
 import com.niit.rcart.util.Util;
-
+//The @Controller annotation is used to mark the class as the controller
 @Controller
 public class CategoryController {
 
@@ -33,7 +33,7 @@ public class CategoryController {
 	ICategoryService iCategoryService;
 	
 	int tcid=0;
- 
+   //The @RequestMapping annotation is used to map the request url
 	@RequestMapping(value = { "/addcategory" })
 	public ModelAndView addCategory(@Valid @ModelAttribute("rcart") Category c,BindingResult result) {
 		System.out.println("add Category");

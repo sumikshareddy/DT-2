@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.niit.rcart.model.User;
 import com.niit.rcart.service.ICategoryService;
 import com.niit.rcart.service.IUserService;
-//@Controller annotation just tells the container that this bean is a designated controller class
+//The @Controller annotation is used to mark the class as the controller
 @Controller
 public class UserController {
 	
@@ -27,7 +27,7 @@ public class UserController {
 	ICategoryService iCategoryService;
 	User user=null;
 	
-	//@RequestMapping annotation is used to map a particular HTTP request method 
+	//The @RequestMapping annotation is used to map the request url
 	@RequestMapping(value = "store", method=RequestMethod.POST)
 	public ModelAndView register(/*HttpServletRequest request,*/@Valid @ModelAttribute("scart") User u,BindingResult result) {
 		System.out.println("Register");

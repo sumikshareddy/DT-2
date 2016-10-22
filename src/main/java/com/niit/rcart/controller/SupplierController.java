@@ -15,7 +15,7 @@ import com.niit.rcart.model.Category;
 import com.niit.rcart.model.Supplier;
 import com.niit.rcart.service.ISupplierService;
 import com.niit.rcart.util.Util;
-
+//The @Controller annotation is used to mark the class as the controller
 @Controller
 public class SupplierController 
 {
@@ -24,7 +24,7 @@ public class SupplierController
 	 
 	 int tsid=0;
 	 Supplier supp;
-	 
+	 //The @RequestMapping annotation is used to map the request url
 	 @RequestMapping(value={"addsupplier"})
 	 public ModelAndView addsupplier(@ModelAttribute("rcart") Supplier s,BindingResult result)
 	 {

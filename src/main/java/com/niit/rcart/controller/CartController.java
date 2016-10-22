@@ -26,7 +26,7 @@ import com.niit.rcart.service.ICartService;
 import com.niit.rcart.service.IOrderService;
 import com.niit.rcart.service.IProductService;
 import com.niit.rcart.service.IUserService;
-
+//The @Controller annotation is used to mark the class as the controller
 @Controller
 public class CartController {
 	                             
@@ -43,7 +43,7 @@ public class CartController {
 	IOrderService iOrderService;
 	
 	int cart1=0;
-	
+	//The @RequestMapping annotation is used to map the request url
 	@RequestMapping(value = { "/cart" })
 	public ModelAndView Cart(HttpServletRequest request)
 	{

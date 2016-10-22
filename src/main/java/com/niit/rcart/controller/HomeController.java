@@ -15,7 +15,7 @@ import com.niit.rcart.service.ICategoryService;
 import com.niit.rcart.service.IProductService;
 import com.niit.rcart.service.IUserService;
 
-// @Controller annotation just tells the container that this bean is a designated controller class
+//The @Controller annotation is used to mark the class as the controller
 @Controller
 public class HomeController {	
 	
@@ -29,7 +29,7 @@ public class HomeController {
 	
 	@Autowired
 	IUserService iUserService;
-	//@RequestMapping annotation is used to map a particular HTTP request method 
+	//The @RequestMapping annotation is used to map the request url
 	@RequestMapping(value = { "/" , "home"})
 	public ModelAndView index() {
 		System.out.println("home");
@@ -67,17 +67,7 @@ public class HomeController {
 		return new ModelAndView("index","command",new User()).addObject("logout", true).addObject("Welcome",iUserService.setUser(null));
 	}
 	
-	/*@RequestMapping(value = { "welcome" })
-	public ModelAndView welcome() {
-		System.out.println("welcome");
-		return new ModelAndView("welcome","command",new User()).addObject("welcome", true);
-	}
-	*/
-	/*@RequestMapping(value = { "buy" })
-	public ModelAndView buy() {
-		System.out.println("buy");
-		return new ModelAndView("buy");
-	}*/
+	
 	@RequestMapping(value = { "confirm" })
 	public ModelAndView confirm() {
 		System.out.println("confirm");
