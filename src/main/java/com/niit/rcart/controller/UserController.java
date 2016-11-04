@@ -77,6 +77,7 @@ public class UserController {
 		System.out.println("adminpg");
 		return new ModelAndView("adminpg","command", new User());
 	}
+	
 	@RequestMapping(value = { "/myProfile" })
 	public ModelAndView myProfile() {
 		System.out.println("myProfile");
